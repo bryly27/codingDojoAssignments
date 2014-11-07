@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JQuery Intermediate</title>
+	<link rel="stylesheet" type="text/css" href="jQueryIntermediate.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+			$("#form").submit(function(){
+			var tempfirst =$('#first').val();
+			var templast =$('#last').val();
+			var tempemail =$('#email').val();
+			var tempcontact =$('#contact').val();
+
+			$(".table").append("<tr><td>" + tempfirst + "</td><td>" + templast + "</td><td>" + tempemail + "</td><td>" + tempcontact + "</td></tr>");
+			return false;
+
+		});
+	});
+
+	</script>
+</head>
+
+<body>
+	<div class="table">
+		<table>
+			<thead>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Email Address</td>
+				<td>Contact #</td>
+			</thead>
+			<!-- <tr>
+				<td class="first"></td>
+				<td class="last"></td>
+				<td class="email"></td>
+				<td class="contact"></td>
+			</tr> -->
+		</table>
+	</div>
+
+	<div class="content">
+		<div class="header">
+			<h1>Add User</h1>
+		</div>
+		<form id="form">
+			First Name:<input id="first" type="text" name="first_name" placeholder="First Name">
+			Last Name:<input id="last" type="text" name="last_name" placeholder="Last Name">
+			Email Address<input id="email" type="text" name="email" placeholder="Email">
+			Contact #<input id="contact" type="text" name="contact" placeholder="Contact">
+			<input type="submit" value="submit">
+		</form>
+	</div>
+
+</body>
+</html>

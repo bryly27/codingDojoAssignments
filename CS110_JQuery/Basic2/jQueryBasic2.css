@@ -1,0 +1,23 @@
+
+body {
+	width: 1000px;
+	height: 900px;
+	background-color: gray;
+}
+
+.ninjas {
+	margin-left: 25px;
+	height: 500px;
+	width: 1000px;
+}
+
+.ninjas div{
+	display: inline-block;
+}
+
+.ninjas img {
+	width: 200px;
+	height:200px;
+	margin: 10px;
+	border: 2px solid black;
+}

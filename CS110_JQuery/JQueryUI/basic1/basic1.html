@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>jQuery UI</title>
+	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+	<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<link rel="stylesheet" href="/resources/demos/style.css">
+	<link rel="stylesheet" type="text/css" href="jQueryUI.css">
+	<script>
+		$(function() {
+			$( "#sortable" ).sortable();
+			$( "#sortable" ).disableSelection();
+	  	});
+	</script>
+</head>
+
+<body>	
+ 	<h1>Sort the Ninja</h1>
+	<ul id="sortable">
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort1.bmp" alt=""></li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort2.bmp" alt=""></li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort3.bmp" alt=""></li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort4.bmp" alt=""></li>
+		<li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort5.bmp" alt=""></li>
+	</ul>
+</body>
+</html>

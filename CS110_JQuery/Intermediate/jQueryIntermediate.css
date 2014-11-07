@@ -1,0 +1,17 @@
+
+.table {
+	width: 500px;
+	height: 100px;
+	border: 1px solid black;
+}
+.table td {
+	width: 100px;
+}
+
+.content {
+	width: 600px;
+}
+
+input {
+	display: block;
+}

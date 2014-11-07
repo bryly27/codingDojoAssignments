@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery Basics 1</title>
+	<link rel="stylesheet" type="text/css" href="jQueryBasic1.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	$(document).ready(function(){
+
+		$(".show p").hide();
+
+		$(".slideDown p").hide();
+
+		$(".fadeIn p").hide();
+
+		$(".addclass button").click(function(){
+			$(".addclass p").addClass("red");
+		});
+
+		$(".after button").click(function(){
+			$(".after p").after("<p>This is what .after does!</p>");
+		});
+
+		$(".append button").click(function(){
+			$(".append p").append("<p>This is what .append does!</p>");
+		});
+
+		$(".attr button").click(function(){
+			$(".attr img").attr("src", "box3pic.png");
+		});
+
+		$(".before button").click(function(){
+			$(".before p").before("<p>This is where the .before text goes.</p>");
+		});
+
+		$(".html button").click(function(){
+			$(".html p").html("This text just changed!");
+		});
+
+		$(".text button").click(function(){
+			$(".text p").text("This will only change the text");
+		});
+
+		$(".val button").click(function(){
+			$(".val input").val(".val will put text in here.");
+		});
+
+		$(".toggle button").click(function(){
+			$(".toggle p").toggle();
+		});
+
+		$(".hide button").click(function(){
+			$(".hide p").hide();
+		});
+
+		$(".show button").click(function(){
+			$(".show p").show();
+		});
+
+		$(".slideDown button").click(function(){
+			$(".slideDown p").slideDown();
+		});
+
+		$(".slideToggle button").click(function(){
+			$(".slideToggle p").slideToggle();
+		});
+
+		$(".slideUp button").click(function(){
+			$(".slideUp p").slideUp();
+		});
+
+		$(".fadeOut button").click(function(){
+			$(".fadeOut p").fadeOut();
+		});
+
+		$(".fadeIn button").click(function(){
+			$(".fadeIn p").fadeIn();
+		});
+
+		$(".focus button").click(function(){
+			$(".focus input").focus();
+		});
+
+		$(".click button").click(function(){
+			$(".click ").click();
+		});
+	});
+
+
+	</script>
+
+</head>
+
+
+
+<body>
+	<div class="addclass">
+		<h1>.addClass</h1>
+		<button>AddClass</button>
+		<p>Click the button to add class 'red' to this paragraph.</p>
+	</div>
+	<div class="after">
+		<h1>.after</h1>
+		<button>.after</button>
+		<p>Click the button to add the text using .after.</p>
+	</div>
+	<div class="append">
+		<h1>.append</h1>
+		<button>.append</button>
+		<p>Click the button to add the text using .append.</p>
+	</div>
+	<div class="attr">
+		<h1>.attr</h1>
+		<button>.attr</button>
+		<p>Click the button change the image source</p><img src="box2pic.png" alt="">
+	</div>
+	<div class="before">
+		<h1>.before</h1>
+		<button>.before</button>
+		<p>Click the button to add text before this paragraph</p>
+	</div>
+	<div class="html">
+		<h1>.html</h1>
+		<button>.html</button>
+		<p>Click the button to change this text.</p>
+	</div>
+	<div class="text">
+		<h1>.text</h1>
+		<button>.text</button>
+		<p>Click the button to change this text.</p>
+	</div>
+	<div class="val">
+		<h1>.val</h1>
+		<button>.val</button>
+		<p>Click the button to change this text.</p>
+		<input>
+	</div>
+	<div class="toggle">
+		<h1>.toggle</h1>
+		<button>.toggle</button>
+		<p>Click the button to toggle the text.</p>
+	</div>
+	<div class="hide">
+		<h1>.hide</h1>
+		<button>.hide</button>
+		<p>Click the button hide the text.</p>
+	</div>
+	<div class="show">
+		<h1>.show</h1>
+		<button>.show</button>
+		<p>The button shows the text.</p>
+	</div>
+	<div class="slideDown">
+		<h1>.slideDown</h1>
+		<button>.slideDown</button>
+		<p>The button showed the text by sliding down.</p>
+	</div> 
+	<div class="slideToggle">
+		<h1>.slideToggle</h1>
+		<button>.slideToggle</button>
+		<p>The button will hide and show the button while sliding up and down.</p>
+	</div> 
+	<div class="slideUp">
+		<h1>.slideUp</h1>
+		<button>.slideUp</button>
+		<p>This button will hide the text while sliding up.</p>
+	</div> 
+	<div class="fadeOut">
+		<h1>.fadeOut</h1>
+		<button>.fadeOut</button>
+		<p>This button will fade out the text.</p>
+	</div> 
+	<div class="fadeIn">
+		<h1>.fadeIn</h1>
+		<button>.fadeIn</button>
+		<p>The text faded in.</p>
+	</div> 
+	<div class="focus">
+		<h1>.focus</h1>
+		<button>.focus</button>
+		<p>Focus will make the box highlighted.</p>
+		<input>
+	</div> 
+	<div class="click">
+		<h1>.click</h1>
+		<button>.click</button>
+		<p>Use the click function to activate functions.</p>
+	</div> 
+
+</body>
+
+</html>

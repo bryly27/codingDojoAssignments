@@ -1,0 +1,84 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>JQuery Basics 2</title>
+	<link rel="stylesheet" type="text/css" href="jQueryBasic2.css">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<script>
+	$(document).ready(function(){
+
+		$(".ninja1 img").click(function(){
+			$(".ninja1 img").fadeTo(0,0);
+		});
+
+		$(".ninja2 img").click(function(){
+			$(".ninja2 img").fadeTo(0,0);
+		});
+
+		$(".ninja3 img").click(function(){
+			$(".ninja3 img").fadeTo(0,0);
+		});
+
+		$(".ninja4 img").click(function(){
+			$(".ninja4 img").fadeTo(0,0);
+		});
+
+		$(".ninja5 img").click(function(){
+			$(".ninja5 img").fadeTo(0,0);
+		});
+
+		$(".ninja6 img").click(function(){
+			$(".ninja6 img").fadeTo(0,0);
+		});
+
+		$(".ninja7 img").click(function(){
+			$(".ninja7 img").fadeTo(0,0);
+		});
+
+		$(".ninja8 img").click(function(){
+			$(".ninja8 img").fadeTo(0,0);
+		});
+
+		$("button").click(function(){
+			$("img").fadeTo(0,100);
+		});
+
+
+		});
+
+</script>
+<body>
+	<center><h1>Hide the Ninjas</h1></center>
+	<div class="ninjas">
+			<div class="ninja1">
+				<img src="ninja.png">
+			</div>
+			<div class="ninja2">
+				<img src="ninja.png">
+			</div>
+			<div class="ninja3">
+				<img src="ninja.png">
+			</div>
+			<div class="ninja4">
+				<img src="ninja.png">
+			</div>
+			<div class="ninja5">
+				<img src="ninja.png">
+			</div>
+			<div class="ninja6">
+				<img src="ninja.png">
+			</div>
+			<div class="ninja7">
+				<img src="ninja.png">
+			</div>
+			<div class="ninja8">
+				<img src="ninja.png">
+			</div>
+	</div>
+
+	<button>Restore</button>
+
+</body>
+</html>
