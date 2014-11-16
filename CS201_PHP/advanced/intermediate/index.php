@@ -105,9 +105,10 @@
 
 		if (isset($_SESSION['activityLog'])) 
 		{
-			foreach ($_SESSION['activityLog'] as $log) 
+			for($i=count($_SESSION['activityLog'])-1; $i>=0; $i--)
+		
 			{
-				echo $log;
+				echo $_SESSION['activityLog'][$i];
 			}
 			
 		} ?>

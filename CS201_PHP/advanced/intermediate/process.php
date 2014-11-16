@@ -38,18 +38,20 @@
  	if(isset($_POST['resetButton']))
  	{
  		header('location: index.php');
- 		unset($_SESSION['goldNumber']);
+ 		session_destroy();
  	}
 
  	
 
  	if($_SESSION['farmGold']>0)
 		{
-			$_SESSION['activityLog'][] = '<p class=\'green\'>You entered a farm and earned '.$_SESSION['farmGold'].' golds.<p>';
+			$_SESSION['activityLog'][] = '<p class=\'green\'>You entered a farm and earned '.$_SESSION['farmGold'].' golds. (' .date('l jS \of F Y h:i:s A').')</p>';
+			
 		}
 		else 
 		{
-			$_SESSION['activityLog'][] = '<p class=\'red\'>You entered a casino and lost '.$_SESSION['farmGold'].' golds... Ouch...<p>';
+			$_SESSION['activityLog'][] = '<p class=\'red\'>You entered a casino and lost '.$_SESSION['farmGold'].' golds... Ouch... (' .date('l jS \of F Y h:i:s A').')</p>';
+		
 		}
 
 ?>
