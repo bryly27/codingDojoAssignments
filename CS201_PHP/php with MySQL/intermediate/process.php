@@ -14,9 +14,9 @@
 
 	else 
 	{
-		session_destroy();
 		header('location: index.php');
 		die();
+		session_destroy();
 	}
 
 	function register_user($post)
@@ -48,6 +48,25 @@
 			$_SESSION['errors'][] = "Please use a valid email address!";
 		}
 
+		$email = "SELECT email FROM mydb2.users WHERE email = '".$post['email']."'";
+		if(!isset($email))
+		{
+			$_SESSION['errors'][] = "hello";
+		}
+		// $_SESSION['emailValidate']=array();
+		// $_SESSION['emailValidate']=fetch_all($email);
+		
+
+		// for($i=0; $i<count($_SESSION['emailValidate']); $i++)
+		// {  var_dump($_SESSION['emailValidate'][$i]);
+		// 	if(strcmp($_SESSION['emailValidate'][$i],$post['email']) !== 0)
+		// 	{
+		// 		$_SESSION['errors'][] = "Email has been used";
+
+		// 	}
+		// }
+
+
 		//------------------end of validation------------------------
 		
 		if(count($_SESSION['errors'])>0) 
@@ -56,7 +75,7 @@
 		}
 		else 
 		{
-			$query = "INSERT INTO users (first_name, last_name, password, email, created_at, 		updated_at) VALUES ('{$post['first_name']}', '{$post['last_name']}', '{$post['password']}', '{$post['email']}', NOW(), NOW())";
+			$query = "INSERT INTO users (first_name, last_name, password, email, created_at, updated_at) VALUES ('{$post['first_name']}', '{$post['last_name']}', '{$post['password']}', '{$post['email']}', NOW(), NOW())";
 			run_mysql_query($query);
 			header('location: index.php');
 			die();
@@ -78,7 +97,7 @@
 		}
 		else
 		{
-			$_SESSION['errors'][] = "Please fix";
+			$_SESSION['errors'][] = "Login information is incorrect.";
 			header('location: index.php');
 			die();
 		}
