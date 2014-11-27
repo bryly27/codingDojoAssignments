@@ -24,11 +24,8 @@
 				$_SESSION['language']=$_POST['language'];
 			}
 
-			if(!empty($_POST['comment']))
-			{
-				$_SESSION['comment']=$_POST['comment'];
-			}
-
+			$_SESSION['comment']=$_POST['comment'];
+		
 			if(count($errors) > 0)
 			{
 				header('location: index.php');

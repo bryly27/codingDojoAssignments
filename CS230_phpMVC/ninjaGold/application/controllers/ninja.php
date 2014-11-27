@@ -57,7 +57,7 @@ class Ninja extends CI_Controller {
 			if(!empty($gold))
 			{
 	
-			if($gold<0)
+			if($gold<0)  
 			{
 				$activityLog[] = '<p class=\'red\'>You entered a '.$location.' and earned '.$gold.' golds. (' .date('l jS \of F Y h:i:s A').')</p><br>';
 

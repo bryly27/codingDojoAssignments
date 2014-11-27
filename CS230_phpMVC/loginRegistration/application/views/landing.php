@@ -42,6 +42,10 @@
 </style>
 
 <body>
+<?php if(validation_errors())
+				{
+					echo validation_errors();
+				} ?>
 	<div class='login'>
 		<form action='/login/log' method='post'>
 			<h5>Log In</h5>
