@@ -11,7 +11,7 @@ class Login extends CI_Controller {
 		// else
 		// {
 		$this->load->library('form_validation');
-			$this->load->view('landing');
+		$this->load->view('landing');
 		// }
 	}
 
@@ -27,10 +27,10 @@ class Login extends CI_Controller {
 
 			$this->load->library('form_validation');
 			$this->form_validation->set_rules('first_name', 'FirstName', 'trim|required|min_length[2]');
-	    $this->form_validation->set_rules('last_name', 'LastName', 'trim|required|min_length[2]');
-	    $this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[students.email]');
-	    $this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|matches[confirm_password]');
-	    $this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'trim|required');
+	    	$this->form_validation->set_rules('last_name', 'LastName', 'trim|required|min_length[2]');
+	   		$this->form_validation->set_rules('email', 'Email', 'trim|required|valid_email|is_unique[students.email]');
+	    	$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[8]|matches[confirm_password]');
+	    	$this->form_validation->set_rules('confirm_password', 'Password Confirmation', 'trim|required');
 
 	    if ($this->form_validation->run() === FALSE)
 			{
