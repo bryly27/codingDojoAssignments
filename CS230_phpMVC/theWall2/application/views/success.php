@@ -1,6 +1,3 @@
-<?php  
-	$userInfo = $this->session->userdata('userInfo');
-?>
 
 <html>
 <head>
@@ -71,56 +68,59 @@
 </style>
 
 <body>
+<?php  
+	$userInfo = $this->session->userdata('userInfo');
+?>
 	<div class='header'>
 		<h3>CodingDojo Wall</h3>
 		<h5>Welcome <?= $userInfo['first_name'] ?></h5>
 		<a href="/wall/logoff/">log off</a>
 	</div>
-	
+
 	<div class='message'>
 		<h4>Post a message</h4>
 		<form action='/wall/addmessage' method='post'>
 			<textarea name='message'></textarea>
 			<input type='submit' value='Post a message'>
-			<input type='hidden' name='action' value='submitMessage'>
+			<input type='hidden' name='action' value='<?= $userInfo['id'] ?>'>
 		</form>
 	</div>
 
-<?php
-	if($this->input->post('message'))
-	{
-	foreach ($message as $key) 
-	{ ?>
-		<div class='wallMessage'>
-			<h5><?= $key['first_name']. ' ' .$key['last_name']. ' - ' .$key['created_at']?></h5>
-			<p><?= $key['message'] ?></p>
-		</div>
-<?php 
-		$comments = $this->user->get_comments($key['id']);
-		$this->session->set_userdata('userId',$key['user_id']);
-		$this->session->set_userdata('messageId',$key['id']);
-		foreach ($comments as $key => $value) 
-		{ ?>
-		<div class='wallComment'>
-				<h5><?= $value['first_name']. ' ' .$value['last_name']. ' - ' .$value['created_at']?></h5>
-				<p><?= $value['comment'] ?></p>
-			</div>
-<?php	
-		} ?>
-		<div class='comment'>
-			<h4>Post a comment</h4>
-			<form action='/wall/addcomment' method='post'>
-				<textarea name='comment'></textarea>
-				<input type='submit' value='Post a comment'>
-				<input type='hidden' name='action' value='submitComment'>
-			</form>
-		</div>
+<?php  
+	
+	foreach ($message as $messages) 
+		  { ?>
+				<div class='wallMessage'>
+					<h5><?= $messages['first_name']. ' ' .$messages['last_name']. ' - ' .$messages['created_at']  ?></h5>
+					<p><?= $messages['message'] ?></p>
+				</div>
+<?php  
+				$this->load->model('user');
+				$commentPost = $this->user->get_comments($messages['id']);
 
-<?php	}
-}
-
-
+					foreach ($commentPost as $key => $value) 
+					{ ?>
+						<div class='wallComment'>
+							<h5><?= $value['first_name']. ' ' .$value['last_name']. ' - ' .$value['created_at'] ?></h5>
+							<p><?= $value['comment'] ?></p>
+						</div>
+<?php			}
+	
 ?>
+				<div class='comment'>
+					<h5>Post a comment</h5>
+					<form action='/wall/addcomment' method='post'>
+						<textarea name='comment'></textarea>
+						<input type='submit' value='Post a comment'>
+						<input type='hidden' name='commentAction' value='<?= $messages['id'] ?>'>
+						<input type='hidden' name='commentAction2' value='<?= $messages['user_id'] ?>'>
+					</form>
+				</div>
+<?php
+			}
+?>
+
+
 	
 
 </body>

@@ -64,10 +64,10 @@ class Wall extends CI_Controller
 
 				if($email == $user['email'] && $password == $user['password'])
 				{		
-					// redirect('/wall/home');
-					$this->load->model('user');
-					$messages['message'] = $this->user->get_messages();
-					$this->load->view('wall', $messages);
+					redirect('/wall/home');
+					// $this->load->model('user');
+					// $messages['message'] = $this->user->get_messages();
+					// $this->load->view('success', $messages);
 				}
 				else
 				{
@@ -77,44 +77,45 @@ class Wall extends CI_Controller
 			}
 		}
 	}
+	public function home()
+	{
 
-	//----------------home page ----------------------
-
-	// public function home()
-	// {
-	// 	$this->load->model('user');	
-	// 	$messages['message'] = $this->user->get_messages();
-	// 	$comments= $this->user->get_comments();
-	// 	$this->session->set_userdata('comment', $comments);
-	// 	$this->load->view('wall', $comments);
-	// }
+		$this->load->model('user');
+		$messages['message'] = $this->user->get_messages();
+		$this->load->view('success', $messages);
+	}
 
 	//----------------adding message-------------------
 
 	public function addMessage()
 	{
 		$this->load->model('user');
-		$message_details = array(
-					"user_id" => $this->session->userdata('userId'),
-					"message" => $this->input->post('message'),
-				);
-		$this->user->add_message($message_details);
-		$this->load->view('wall');
+		$messageInfo = array(
+				"message" => $this->input->post('message'),
+				"user_id" => $this->input->post('action'),
+			);
+		$this->user->add_message($messageInfo);
+		redirect('wall/home');
 	}
+
+	//-----------------get comment-----------------
+
+
   
 	//----------------adding comment---------------------
 
 	public function addComment()
 	{
 		$this->load->model('user');
-		$comment_details = array(
-					"user_id" => $this->session->userdata('userId'),
-					"comment" => $this->input->post('comment'),
-					"messages_id" => $this->session->userdata('messageId'),
-				);
-		$this->user->add_comment($comment_details);
-		$this->load->view('wall');
+		$commentInfo = array(
+				"comment" => $this->input->post('comment'),
+				"messages_id" => $this->input->post('commentAction'),
+				"user_id" => $this->input->post('commentAction2'),
+			);
+		$this->user->add_comment($commentInfo);
+		redirect('wall/home');
 	}
+	
 
 	//--------------------log off----------------------
 

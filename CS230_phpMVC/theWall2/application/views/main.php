@@ -50,8 +50,8 @@
 	<div class='login'>
 		<form action='/wall/login' method='post'>
 			<h5>Log In</h5>
-			<p>Email: <input name='email' type='text' value='bryly27@sbcglobal.net'></p>
-			<p>Password: <input name='password' type='password' value='bryantbryant'></p>
+			<p>Email: <input name='email' type='text'></p>
+			<p>Password: <input name='password' type='password'></p>
 			<input type='submit' value='login' class='button'>
 			<input type='hidden' name='action' value='login'>
 		</form>

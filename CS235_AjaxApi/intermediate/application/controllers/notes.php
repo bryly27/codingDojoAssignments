@@ -5,9 +5,17 @@
 		public function index()
 		{
 			// $this->session->sess_destroy();
+			// $this->load->model('user');
+			// $notes['note'] = $this->user->get_notes();
+			$this->load->view('main');
+		}
+
+		public function load()
+		{
+			// $this->session->sess_destroy();
 			$this->load->model('user');
 			$notes['note'] = $this->user->get_notes();
-			$this->load->view('main', $notes);
+			$this->load->view('partial', $notes);
 		}
 
 		public function addNote()
@@ -17,10 +25,10 @@
 				"title" => $this->input->post('title'),
 				);
 			$post = $this->user->create($notes_details);
-			// redirect('/');
-			$this->load->model('user');
+
 			$data['note'] = $this->user->get_notes();
 			$this->load->view('partial', $data);
+	
 		}
 
 		public function addtext()
@@ -29,9 +37,12 @@
 			$notes_content = array(
 					"description" => $this->input->post('description'),
 				);
-			$content = $this->user->add_content($notes_content, $this->session->userdata('id'));
-		
-			$this->load->model('user');
+			$content = $this->user->add_content($notes_content, $this->input->post('hiddenId'));
+			// $data['note'] = $this->user->get_notes();
+			// echo $this->input->post('hiddenId');
+			// echo $notes_content['description'];
+			// die();
+			// $this->load->model('user');
 			$data['note'] = $this->user->get_notes();
 			$this->load->view('partial', $data);
 		}
@@ -41,6 +52,10 @@
 			$this->load->model('user');
 			$this->user->delete($id);
 			redirect('/');
+			// $this->load->model('user');
+			// $data['note'] = $this->user->get_notes();
+			// $this->load->view('partial', $data);
+			// $this->load->view('partial');
 		}
 
 		
