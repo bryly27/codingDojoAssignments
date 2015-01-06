@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title>Fundamentals Part 2</title>
+</head>
+<script type="text/javascript">
+	
+	var person = {
+	name: 'Bryant',
+	distance_travelled: 0,
+	say_name: function(){
+		alert(this.name);
+	},
+	say_something: function(x){
+		alert(this.name + ' says, ' + x);
+	},
+	walk: function(){
+		alert(this.name + ' is walking.');
+		// console.log(this.distance_travelled + 3);
+		return this.distance_travelled =  this.distance_travelled + 3;
+	},
+	run: function(){
+		alert(this.name + ' is running.');
+		return this.distance_travelled =  this.distance_travelled + 10;
+	},
+	crawl: function(){
+		alert(this.name + ' is crawling');
+		return console.log(this.distance_travelled + 1);
+	},
+
+	doSomething: function()
+	{
+		var random = Math.floor((Math.random() * 3) + 0);
+		if(random === 0)
+		{
+			return this.walk();
+		}
+		else if(random === 1)
+		{
+			return this.run();
+		}
+		else
+		{
+			return this.crawl();
+		}
+	},
+
+	fly: function(x,y){
+		var random = Math.random();
+		if(random<0.30)
+		{
+			console.log(x());
+		}
+		else
+		{
+			console.log(y());
+		}
+	}
+
+}
+
+// person.say_something('hello');
+// person.walk();
+// person.run();
+// person.walk();
+// console.log(person.distance_travelled);
+// person.doSomething();
+// var returned_function = person.doSomething();
+
+person.fly(function(){alert('I can fly');}, function(){alert('I can not fly')});
+
+</script>
+<body>
+
+</body>
+</html>

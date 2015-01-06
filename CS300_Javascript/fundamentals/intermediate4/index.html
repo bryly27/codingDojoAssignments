@@ -1,0 +1,83 @@
+<html>
+<head>
+	<title>Intermediate 4</title>
+
+	<script type="text/javascript">
+		var dojo_library = ( function() {
+		  return {
+		   map: function(x,y) {var z = [];
+		   											if(Array.isArray(x))
+		   											{
+			   											for(var i = 0; i<x.length; i++)
+													   	{
+													   		z.push(y(x[i]));
+													   	}
+													   		return z;
+													  }
+													  else
+													  {
+													  	for(i in x)
+													  	{
+													  		z.push(y(x[i]));
+													  	}
+													  		return z;
+													  }
+		   										},
+		   reduce: function(x,y,z)  {
+		   														var sum = z;
+		   														for(var i = 0; i<x.length; i++)
+		   														{
+		   															z = y(z,x[i]);
+		   														}
+		   														return z;
+		   													},
+		   find: function(x,y) {
+		   										for(var i = 0; i<x.length; i++)
+		   										{
+		   											if(y(x[i])== true)
+		   												return x[i];
+		   										}
+		   									},
+		   filter: function(x,y) 	{ var z = []; 
+		   													for(var i = 0; i<x.length; i++)
+		   													{
+															   	if(y(x[i])===true)
+															   	{
+															   		z.push(x[i]);	   		
+															   	}
+														   	}
+														   	return z;
+		 													} ,
+		    reject: function(x,y) {var z = [];
+		    												for(var i = 0; i<x.length; i++)
+		    												{
+		    													if(y(x[i])===false)
+		    													{
+		    														z.push(x[i]);
+		    													}
+		    												}
+		    												return z;
+		    											},
+				}
+			}
+		)();
+		var evens = dojo_library.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+		var odds = dojo_library.filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 != 0; });
+		var small = dojo_library.filter([1, 2, 3, 4, 5, 6], function(num){ return num < 4; });
+
+		var maps = dojo_library.map([1,2,3], function(num){return num * 3; });
+		var maps2 = dojo_library.map({one: 2, two: 4, three: 6}, function(num, key){ return num * 3; });
+	
+		var reduce = dojo_library.reduce([1, 2, 3], function(memo, num){ return memo + num; }, 0);
+
+		var find = dojo_library.find([1, 4, 3, 1, 8, 1], function(num){ return num % 2 == 0; });
+
+		var reject = dojo_library.reject([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0; });
+		console.log(reject);
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

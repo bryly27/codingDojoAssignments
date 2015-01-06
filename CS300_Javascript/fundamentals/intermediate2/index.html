@@ -1,0 +1,62 @@
+<html>
+<head>
+	<title>Intermediate 2</title>
+	<script type="text/javascript">
+	
+		var randomName = function(){
+			var name = ['George', 'Mike', 'Joe', 'Ninja'];
+			var number = Math.floor((Math.random() * name.length) - 0)
+			return name[number];
+		}
+
+		var say = function(x) {
+		  console.log('Say ', x);
+		}
+		var yell = function(x) {
+		  console.log('Yell ', x);
+		}
+		var eat = function(x) {
+		  console.log('Eat ', x);
+		}
+		var roll = function(x) {
+		  console.log ('Roll ', x);
+		}
+
+
+		// console.log(randomName());
+		// say(randomName());
+
+
+		function random_function(a,b,c,d,e)
+		{
+			var number = Math.random();
+			if(number <= 0.25)
+			{
+				b(a);
+			}
+			else if(number <= 0.5)
+			{
+				c(a);
+			}
+			else if(number <= 0.75)
+			{
+				d(a);
+			}
+			else
+			{
+				e(a);
+			}
+		}
+
+		random_function(randomName(), say, yell, eat, roll);
+
+
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

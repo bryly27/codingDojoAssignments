@@ -1,0 +1,159 @@
+<html>
+<head>
+	<title>Circles</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+	body {
+		background-color:black;
+	}
+	</style>
+</head>
+<body>
+
+	<svg id="svg" height='500px' width='600px' xmlns="http://www.w3.org/2000/svg"></svg>
+
+	<script>
+	var Circle = function Circle()
+	{
+		this.counter = 1;
+		this.circles = {};
+		// return Circle;
+	}
+
+	Circle.prototype.makeSVG = function(tag, attrs)
+	{
+		var el= document.createElementNS('http://www.w3.org/2000/svg', tag);
+      for (var k in attrs)
+      {
+          el.setAttribute(k, attrs[k]);
+      }
+      return el;
+	};
+
+	Circle.prototype.createCircle = function(cx,cy,r)
+	{
+		var circle = this.makeSVG('circle', 
+			{ cx: cx,
+			  cy: cy,
+			  r:  r,
+			  id: 'circle_'+ this.counter,
+			  style: "fill: white"
+			});
+		circle.setAttribute("style", "fill: rgb("+Math.floor((Math.random()*255))+","+Math.floor((Math.random()*255))+","+Math.floor((Math.random()*255))+"); ");
+		//the key will be the HTML id and the value will be the radius
+		this.circles['circle_'+this.counter] = { radius: r };
+		this.counter++;
+
+		document.getElementById('svg').appendChild(circle);
+	};
+
+	Circle.prototype.updateCircles = function()
+	{
+		for(circle in circles)
+		{
+			var el = document.getElementById(circle);
+			var color = 255-parseInt(circles[circle].radius/80*255);
+			circles[circle].radius = circles[circle].radius+1;
+			//update the radius and the background color
+			el.setAttribute("r", circles[circle].radius);
+			
+			//if the circle radius is greater than 80, remove the dom and remove its value in the circles variable/object
+			if(circles[circle].radius > 80)
+			{
+				document.getElementById('svg').removeChild(el);
+				delete circles[circle];
+			}
+		}
+	}
+
+	Circle.prototype.mainLoop = function()
+	{
+		for(var i = 1; i<=500; i++){
+    	this.createCircle(Math.random()*document.body.clientWidth, Math.random()*document.body.clientHeight, Math.floor((Math.random() * 20) +1));
+    }
+	}
+
+
+	var circle = new Circle();	
+	circle.mainLoop();
+	console.log(circle);
+	console.dir(circle);
+	
+	// var circle1 = new Circle();	
+	
+
+
+
+
+
+	//because we haven't learned how to do OOP in Javascript, we're going to just use regular functions.  Know that with OOP, there is even a better way to do this
+	// var counter = 1;
+	// var circles = {};
+	// //read: http://stackoverflow.com/questions/3642035/jquerys-append-not-working-with-svg-element
+	// //create an SVG element
+	// function makeSVG(tag, attrs) {
+ //        var el= document.createElementNS('http://www.w3.org/2000/svg', tag);
+ //        for (var k in attrs)
+ //        {
+ //            el.setAttribute(k, attrs[k]);
+ //        }
+ //        return el;
+ //    }
+ //    //draws a star
+	// function createCircle(cx,cy,r)
+	// {
+	// 	var circle = makeSVG('circle', 
+	// 		{ cx: cx,
+	// 		  cy: cy,
+	// 		  r:  r,
+	// 		  id: 'circle_'+counter,
+	// 		  style: "fill: white"
+	// 		});
+	// 	//the key will be the HTML id and the value will be the radius
+	// 	circles['circle_'+counter] = { radius: r };
+	// 	counter++;
+
+	// 	document.getElementById('svg').appendChild(circle);
+	// }
+	// //go through all the circles and update its radius and background color
+	// function updateCircles()
+	// {
+	// 	for(circle in circles)
+	// 	{
+	// 		var el = document.getElementById(circle);
+	// 		var color = 255-parseInt(circles[circle].radius/80*255);
+	// 		circles[circle].radius = circles[circle].radius+1;
+	// 		//update the radius and the background color
+	// 		el.setAttribute("r", circles[circle].radius);
+	// 		el.setAttribute("style", "fill: rgb("+color+","+color+","+color+"); ");
+	// 		//if the circle radius is greater than 80, remove the dom and remove its value in the circles variable/object
+	// 		if(circles[circle].radius > 80)
+	// 		{
+	// 			document.getElementById('svg').removeChild(el);
+	// 			delete circles[circle];
+	// 		}
+	// 	}
+	// }
+
+
+	// //main loop
+	// 	function mainLoop()
+ //    {
+ //    	//create a new circle of radius 15 every time the loop is run
+ //    	for(var i = 1; i<=10; i++)
+ //    	{
+ //    	createCircle(Math.random()*document.body.clientWidth, Math.random()*document.body.clientHeight, Math.floor((Math.random() * 20) +1));
+ //    	}
+    	
+ //    	//update the circle size and background color
+ //    	// updateCircles();	
+ //    }
+    
+	
+	//execute the mainLoop funtion every 30 milliseconds
+	// setInterval(mainLoop, 100);
+	// mainLoop();
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<html>
+<head>
+	<title>Character Game</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<style type="text/css">
+		.floor {
+			position: absolute;
+			height: 100px;
+			border-top: 1px solid black;
+			width: 100%;
+			height: 4px;
+			margin-top: 267px;
+
+		}
+
+
+</style>
+<body>
+
+	<div id="character" style="position:absolute; top:0px; left:0px;"><img id='image' src='img/right1.png'></div>
+	<div id="character2" style="position:absolute; top:0px; left:0px;"><img id='image2' src='img/left1.png'></div>
+	<div id='ninjaStar' style='position:absolute; top: 0px; left:0px;'><img id='star' height='20px' width='20px' src='img/ninjastar.png'></div>
+	<div class='floor'></div>
+	
+
+	<script>
+
+	function gameLoop()
+	{
+		$('#character').css("left", x+"px");
+		$('#character').css("top", y+"px");
+	}
+
+	function secondPlayer()
+	{
+		$('#character2').css("left", x2+"px");
+		$('#character2').css("top", y2+"px");
+	}
+
+	// requestAnimationFrame(gameLoop);
+	setInterval(gameLoop, 1);
+	setInterval(secondPlayer, 1);
+
+	var x=0, y=200;
+	var x2=1000, y2=200;
+
+	var nx = 0;
+	var ny = 0;
+	document.onkeydown = function(e)
+	{
+		if(e.keyCode == 37)
+		{
+			x = x-10;
+			if($('#image').attr('src') !='img/left1.png'){
+				$('#image').attr('src', 'img/left1.png');
+			}
+			else if($('#image').attr('src') == 'img/left1.png')
+			{
+				$('#image').attr('src', 'img/left2.png');
+			}
+				
+		}
+		else if(e.keyCode == 39)
+		{
+			x = x+10;
+			if($('#image').attr('src') !='img/right1.png'){
+				$('#image').attr('src', 'img/right1.png');
+			}
+			else if($('#image').attr('src') == 'img/right1.png')
+			{
+				$('#image').attr('src', 'img/right2.png');
+			}
+		}
+		else if(e.keyCode == 40)
+		{
+			y=y+10;
+			if($('#image').attr('src') !='img/down1.png'){
+				$('#image').attr('src', 'img/down1.png');
+			}
+			else if($('#image').attr('src') == 'img/down1.png')
+			{
+				$('#image').attr('src', 'img/down2.png');
+			}
+		}
+		else if(e.keyCode == 38)
+		{
+			y=y-10;
+			if($('#image').attr('src') !='img/top1.png'){
+				$('#image').attr('src', 'img/top1.png');
+			}
+			else if($('#image').attr('src') == 'img/top1.png')
+			{
+				$('#image').attr('src', 'img/top2.png');
+			}
+		}
+		if(e.keyCode == 65)
+		{
+			x2 = x2-10;
+			if($('#image2').attr('src') !='img/left1.png'){
+				$('#image2').attr('src', 'img/left1.png');
+			}
+			else if($('#image2').attr('src') == 'img/left1.png')
+			{
+				$('#image2').attr('src', 'img/left2.png');
+			}
+				
+		}
+		else if(e.keyCode == 68)
+		{
+			x2 = x2+10;
+			if($('#image2').attr('src') !='img/right1.png'){
+				$('#image2').attr('src', 'img/right1.png');
+			}
+			else if($('#image2').attr('src') == 'img/right1.png')
+			{
+				$('#image2').attr('src', 'img/right2.png');
+			}
+		}
+		else if(e.keyCode == 83)
+		{
+			y2=y2+10;
+			if($('#image2').attr('src') !='img/down1.png'){
+				$('#image2').attr('src', 'img/down1.png');
+			}
+			else if($('#image2').attr('src') == 'img/down1.png')
+			{
+				$('#image2').attr('src', 'img/down2.png');
+			}
+		}
+		else if(e.keyCode == 87)
+		{
+			y2=y2-10;
+			if($('#image2').attr('src') !='img/top1.png'){
+				$('#image2').attr('src', 'img/top1.png');
+			}
+			else if($('#image2').attr('src') == 'img/top1.png')
+			{
+				$('#image2').attr('src', 'img/top2.png');
+			}
+		}
+		else if(e.keyCode == 18)
+		{
+			nx = x + 60;
+			ny = y + 40;
+			$('#ninjaStar').css("left", nx+"px");
+			$('#ninjaStar').css("top", ny+"px");
+			shootingStar();
+		}
+		battle();
+		console.log(e.keyCode, x, y, x2, y2, nx, ny);
+	}
+
+	function shootingStar()
+	{
+		if(nx < 1200){
+			nx = nx+1;
+			$('#ninjaStar').css("left", nx+"px");
+		}
+	}
+
+	setInterval(shootingStar, 1);
+
+	function battle()
+	{
+		if(y == 210)
+		{
+			y=y-10;
+		}
+
+		if(y2 == 210)
+		{
+			y2=y2-10;
+		}
+
+		if(nx == x2 && ny == y2)
+		{
+			alert('you died');
+		}
+
+	}
+
+
+
+
+	console.log(document);
+	</script>
+
+</body>
+</html>

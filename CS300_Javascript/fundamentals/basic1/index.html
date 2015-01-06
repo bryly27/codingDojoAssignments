@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title>Fundamentals Part 1</title>
+	<script type="text/javascript">
+
+		var x = [3,5,'Dojo', 'rocks', {name: 'Michael', title: 'Sensei'}];
+		for(var i = 0; i<x.length; i++){
+			if(typeof(x[i]) === 'object')
+			{
+				for(y in x[i])
+				{
+					console.log(y + ' ' + typeof(y));
+				}
+				
+			}
+			else 
+			{
+				console.log(x[i] + ' ' + typeof(x[i]));
+			}
+		}
+
+		x.push(100);
+		console.log(x);
+
+		x.push([]);
+		console.log(x);
+
+		var sum = 0; 
+		for(var i = 0; i<=500; i++){
+			sum += i;
+		}
+		console.log(sum);
+
+		var time_stamp1 = new Date();
+		var y = time_stamp1.getTime();
+		var sum = 0;
+		for(var i = 0; i<=1000000; i++){
+			sum +=i;
+		}
+		var time_stamp2 = new Date();
+		var z = time_stamp2.getTime() - y;
+		console.log(z);
+
+
+
+	</script>
+</head>
+<body>
+
+</body>
+</html>

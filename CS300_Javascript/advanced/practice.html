@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>Javascript Demo</title>
+</head>
+<body>
+	<script type="text/javascript">
+
+
+		console.log('first log', this);
+		function abc(){
+			console.log('inside function', this);
+		}
+
+		abc();
+
+
+
+
+
+		function Ninja(name){
+			console.log('inside ninja', this);
+
+			var self = this;
+			// private variable
+			var place = 'private place';
+			var distance = 0;
+			//instance variables
+			this.name = name;
+			this.dojo = { city: 'Bellevue',
+										state: 'WA',
+									};
+			this.walk = function(){
+				console.log('walking');
+				distance += 1;
+				return this;
+			}
+
+			this.run = function(){
+				console.log('running');
+				distance +=5;
+				displayInfo();
+				return this;
+			}
+
+			self.distance = 50;
+
+			var displayInfo = function(){
+				console.log('inside display info', self);
+				console.log('displaying info', 'distance travelled', distance);
+
+			}
+		}
+		ninja1 = new Ninja('Bryant');
+		ninja1.run();
+
+
+	</script>
+
+</body>
+</html>
