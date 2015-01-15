@@ -1,0 +1,95 @@
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script type="text/javascript">
+		var myApp = angular.module('myApp', []);
+
+		myApp.factory('taskFactory', function(){
+			var tasks = [
+				{task: 'Eat Lunch', priority: 'HIGH', deadline: 'March 23rd 2015', created: 'June 1st 2014'},
+				{task: 'Dance', priority: 'LOW', deadline: 'March 21rd 2015', created: 'December 22nd 2014'}];
+
+			var factory = {};
+
+			factory.getTasks = function(callback){
+				callback(tasks);
+			}
+
+			factory.addTask = function(data, callback){
+				data.created = new Date();
+				tasks.push(data);
+				callback(tasks);
+			}
+
+			factory.deleteTask = function(data, callback){
+				tasks.splice(tasks.indexOf(data), 1);
+				callback(tasks);
+			}
+
+			return factory;
+		})
+
+		myApp.controller('tasksController', function ($scope, taskFactory){
+				$scope.tasks = [];
+				
+				taskFactory.getTasks(function(data){
+					$scope.tasks = data;
+				})
+
+				$scope.addTask = function(){
+					taskFactory.addTask($scope.newTask, function(data){
+						$scope.tasks = data;
+						$scope.newTask = {};
+					})
+				}	
+
+				$scope.deleteTask = function(task){
+					taskFactory.deleteTask(task, function(data){
+						$scope.task = data;
+					})
+				}
+
+
+
+			})
+
+
+	</script>
+</head>
+<body ng-app='myApp'>
+	<div ng-controller='tasksController'>
+		<h3>Tasks</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Tasks</th>
+					<th>Priority</th>
+					<th>Deadline</th>
+					<th>Created</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='task in tasks'>
+					<td><span ng-bind='task.task'></span></td>
+					<td><span ng-bind='task.priority'></span></td>
+					<td><span ng-bind='task.deadline | date: format: longdate'></span></td>
+					<td><span ng-bind='task.created | date: format: longdate'></span></td>
+					<td><span ng-bind='task.actions'></span></td>
+					<td><input type='submit' value='remove' ng-click='deleteTask(task)'></td>
+				</tr>
+			</tbody>
+		</table>
+		<h3>Add a new task</h3>
+		<p>Task Name: <input type='text' ng-model='newTask.task'></p>
+		<p>Priority: <select ng-model='newTask.priority'></p>
+								<option>LOW</option>
+								<option>MEDIUM</option>
+								<option>HIGH</option>
+							</select>	
+		<p>Deadline: <input type='date' ng-model='newTask.deadline'></p>
+		<p><input type='submit' value='create' ng-click='addTask()'></p>	
+	</div>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.form {
+			height: 300px;
+			width: 400px;
+			border: 1px solid black;
+			padding-left: 50px;
+			padding-top: 50px;
+			margin-left: 200px;
+			margin-top: 100px;
+		}
+		textarea {
+			height: 100px;
+			width: 300px;
+		}
+	</style>
+</head>
+<body>
+	<div class='form'>
+		<form action='/result' method='post'>
+			<p>Your Name: <input type='text' name='name'></p>
+			<p>Dojo Location: <select name='location'>
+													<option value='Mountain_View'>Mountain View</option>
+													<option value='Seattle'>Seattle</option>
+												</select>	
+			</p>
+			<p>Favorite Language: <select name='language'>
+															<option value='Javascript'>Javascript</option>
+															<option value='PHP'>PHP</option>
+															<option value='Ruby'>Ruby</option>
+														</select>		
+			</p>
+			<p>Comment (optional):</p> 
+			<textarea name='comment' placeholder='put your comment here'></textarea>
+			<input type='submit' value='submit'>
+		</div>
+	</div>
+</body>
+</html>

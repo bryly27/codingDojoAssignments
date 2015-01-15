@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css
+	">
+</head>
+<body>
+	<h1>Mongooses in Coding Dojo</h1>
+	<form action='new' method='post'>
+		<input type='submit' value='Add New Mongoose'>
+	</form>
+<% for (var x in mongoose){ %>
+		<h3>Mongoose Name: <a href="/mongooses/<%= mongoose[x]._id %>"> <%= mongoose[x].name %></a></h3>
+		<h5>Belt: <%= mongoose[x].belt %></h5>
+		<hr>
+<% } %>
+
+</body>
+</html>

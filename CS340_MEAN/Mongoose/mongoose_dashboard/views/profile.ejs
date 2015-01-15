@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<%  for(var x in user_info)
+		{ %> 
+		<h1><%= user_info[x].name %>'s Profile</h1>
+		<h3>Name: <%= user_info[x].name %></h3>
+		<h3>Belt: <%= user_info[x].belt %></h3>
+<%	} %>
+	<a href='/mongooses/<%= user_info[x]._id %>/edit'>Edit Info</a>
+	<form action='/' method='post'>
+		<input type='submit' value='back'>
+	</form>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script type="text/javascript">
+		var myApp = angular.module('myApp', []);
+		myApp.controller('friendsController', function ($scope){
+			$scope.friends = [
+				'Bryant', 'Arjun'
+				// {name: 'Bryant', age: 25.9, gender:'boy'},
+				// {name: 'Arjun', age: 25, gender:'boy'},
+				// {name: 'Mish', age: 25.9, gender:'boy'},
+				// {name: 'Stephen', age: 2.1, gender:'boy'},
+				// {name: 'Chris', age: 45.3, gender:'boy'},
+				// {name: 'Hristo', age: 21.9, gender:'boy'},
+				// {name: 'Gregg', age: 25.9, gender:'boy'},
+				// {name: 'Diana', age: 22.5, gender:'girl'},
+			];
+
+			$scope.removeFriend = function(friend){
+				// $scope.friends.splice($scope.friends.indexOf(friend),1);
+			}
+
+			$scope.addFriend = function(){
+				$scope.friends.push($scope.newFriend);
+				$scope.newFriend='';
+			}
+		})
+	</script>
+</head>
+<body ng-app='myApp'>
+	<div ng-controller='friendsController'>
+		Search Friends: <input type='text' ng-model='filter_name'>
+		<ul>
+			<!-- <li ng-repeat="friend in friends | filter:filter_name | orderBy:'name'">
+				{{ friend.name}} - age {{ friend.age | number:0 }}, gender {{ friend.gender | uppercase}}
+				<a href="#" ng-click='removeFriend(friend)'>delete</a>
+			</li> -->
+			<li ng-repeat='friend in friends  track by $index'>
+				{{ friend }}
+				<a href='#' ng-click='removeFriend(friend'>delete</a>
+			</li>
+		</ul>
+		<h2>Add new freind:</h2>
+		Name: <input type='text' ng-model='newFriend'>
+		<input type='submit' ng-click='addFriend()' value='add friend!'>
+	</div>
+
+</body>
+</html>

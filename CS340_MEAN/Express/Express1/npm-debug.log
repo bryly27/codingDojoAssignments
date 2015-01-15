@@ -1,0 +1,126 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'ejs' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.35
+4 verbose cache add [ 'ejs', null ]
+5 verbose cache add name=undefined spec="ejs" args=["ejs",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'ejs',
+6 verbose parsed url   path: 'ejs',
+6 verbose parsed url   href: 'ejs' }
+7 silly lockFile 75eeca8f-ejs ejs
+8 verbose lock ejs /Users/coding/.npm/75eeca8f-ejs.lock
+9 silly lockFile 75eeca8f-ejs ejs
+10 silly lockFile 75eeca8f-ejs ejs
+11 verbose addNamed [ 'ejs', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile bcdf6e5f-ejs ejs@
+14 verbose lock ejs@ /Users/coding/.npm/bcdf6e5f-ejs.lock
+15 silly addNameRange { name: 'ejs', range: '*', hasData: false }
+16 verbose request where is /ejs
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 212026b05c1c904f
+19 verbose url raw /ejs
+20 verbose url resolving [ 'https://registry.npmjs.org/', './ejs' ]
+21 verbose url resolved https://registry.npmjs.org/ejs
+22 verbose request where is https://registry.npmjs.org/ejs
+23 info trying registry request attempt 1 at 16:36:53
+24 verbose etag "34ELEW2AO93BZ649SIH4MAZGG"
+25 http GET https://registry.npmjs.org/ejs
+26 http 304 https://registry.npmjs.org/ejs
+27 silly registry.get cb [ 304,
+27 silly registry.get   { date: 'Wed, 07 Jan 2015 00:36:54 GMT',
+27 silly registry.get     server: 'Apache',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     'last-modified': 'Wed, 07 Jan 2015 00:36:54 GMT',
+27 silly registry.get     'cache-control': 'max-age=60',
+27 silly registry.get     etag: '"34ELEW2AO93BZ649SIH4MAZGG"',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-lax1428-LAX',
+27 silly registry.get     'x-cache': 'HIT',
+27 silly registry.get     'x-cache-hits': '1',
+27 silly registry.get     'x-timer': 'S1420591014.447187,VS0,VE312',
+27 silly registry.get     vary: 'Accept',
+27 silly registry.get     'content-length': '0',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 verbose etag https://registry.npmjs.org/ejs from cache
+29 silly addNameRange number 2 { name: 'ejs', range: '*', hasData: true }
+30 silly addNameRange versions [ 'ejs',
+30 silly addNameRange   [ '0.0.1',
+30 silly addNameRange     '0.0.2',
+30 silly addNameRange     '0.0.3',
+30 silly addNameRange     '0.0.4',
+30 silly addNameRange     '0.1.0',
+30 silly addNameRange     '0.2.0',
+30 silly addNameRange     '0.2.1',
+30 silly addNameRange     '0.3.0',
+30 silly addNameRange     '0.3.1',
+30 silly addNameRange     '0.4.0',
+30 silly addNameRange     '0.4.1',
+30 silly addNameRange     '0.4.2',
+30 silly addNameRange     '0.4.3',
+30 silly addNameRange     '0.5.0',
+30 silly addNameRange     '0.6.0',
+30 silly addNameRange     '0.6.1',
+30 silly addNameRange     '0.7.0',
+30 silly addNameRange     '0.7.1',
+30 silly addNameRange     '0.7.2',
+30 silly addNameRange     '0.8.0',
+30 silly addNameRange     '0.8.1',
+30 silly addNameRange     '0.8.2',
+30 silly addNameRange     '0.8.3',
+30 silly addNameRange     '0.8.4',
+30 silly addNameRange     '0.8.5',
+30 silly addNameRange     '0.8.6',
+30 silly addNameRange     '0.8.8',
+30 silly addNameRange     '1.0.0',
+30 silly addNameRange     '2.0.2',
+30 silly addNameRange     '2.0.3',
+30 silly addNameRange     '2.0.4',
+30 silly addNameRange     '2.0.5',
+30 silly addNameRange     '2.0.6',
+30 silly addNameRange     '2.0.7',
+30 silly addNameRange     '2.0.8' ] ]
+31 verbose addNamed [ 'ejs', '2.0.8' ]
+32 verbose addNamed [ '2.0.8', '2.0.8' ]
+33 silly lockFile 96e9331d-ejs-2-0-8 ejs@2.0.8
+34 verbose lock ejs@2.0.8 /Users/coding/.npm/96e9331d-ejs-2-0-8.lock
+35 silly lockFile d836cdfe-stry-npmjs-org-ejs-ejs-2-0-8-tgz https://registry.npmjs.org/ejs/-/ejs-2.0.8.tgz
+36 verbose lock https://registry.npmjs.org/ejs/-/ejs-2.0.8.tgz /Users/coding/.npm/d836cdfe-stry-npmjs-org-ejs-ejs-2-0-8-tgz.lock
+37 verbose addRemoteTarball [ 'https://registry.npmjs.org/ejs/-/ejs-2.0.8.tgz',
+37 verbose addRemoteTarball   'b9e67d2887bab7895af644ce1b0402ed7a5ca52a' ]
+38 info retry fetch attempt 1 at 16:36:54
+39 verbose fetch to= /var/folders/hp/3mk6sybd6t7324sgt_1k2npr0000gq/T/npm-58492-Lfa8iuVO/registry.npmjs.org/ejs/-/ejs-2.0.8.tgz
+40 http GET https://registry.npmjs.org/ejs/-/ejs-2.0.8.tgz
+41 http 200 https://registry.npmjs.org/ejs/-/ejs-2.0.8.tgz
+42 silly lockFile d836cdfe-stry-npmjs-org-ejs-ejs-2-0-8-tgz https://registry.npmjs.org/ejs/-/ejs-2.0.8.tgz
+43 silly lockFile d836cdfe-stry-npmjs-org-ejs-ejs-2-0-8-tgz https://registry.npmjs.org/ejs/-/ejs-2.0.8.tgz
+44 silly lockFile 96e9331d-ejs-2-0-8 ejs@2.0.8
+45 silly lockFile 96e9331d-ejs-2-0-8 ejs@2.0.8
+46 silly lockFile bcdf6e5f-ejs ejs@
+47 silly lockFile bcdf6e5f-ejs ejs@
+48 error Error: EACCES, mkdir '/Users/coding/.npm/ejs/2.0.8'
+48 error  { [Error: EACCES, mkdir '/Users/coding/.npm/ejs/2.0.8']
+48 error   errno: 3,
+48 error   code: 'EACCES',
+48 error   path: '/Users/coding/.npm/ejs/2.0.8' }
+49 error Please try running this command again as root/Administrator.
+50 error System Darwin 13.4.0
+51 error command "node" "/usr/local/bin/npm" "install" "ejs"
+52 error cwd /Users/coding/Desktop/CodingDojo/codingDojoAssign/CS340_MEAN/Express/Express1
+53 error node -v v0.10.35
+54 error npm -v 1.4.28
+55 error path /Users/coding/.npm/ejs/2.0.8
+56 error code EACCES
+57 error errno 3
+58 error stack Error: EACCES, mkdir '/Users/coding/.npm/ejs/2.0.8'
+59 verbose exit [ 3, true ]

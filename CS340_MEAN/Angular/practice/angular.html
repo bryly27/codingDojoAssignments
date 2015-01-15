@@ -1,0 +1,44 @@
+<html ng-app='myApp'>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>
+	<script type="text/javascript">
+		var myAppModule = angular.module('myApp',[]);
+
+		myAppModule.factory('studentFactory', function(){
+
+			var students = [
+				{name: 'Bryant', age: 25},
+				{name: 'John', age: 11},
+				{name: 'Mike', age: 33}
+			];
+			var factory = {};
+			factory.getStudents = function (callback){
+
+				callback(students);
+			}
+			return factory
+		})
+		
+		myAppModule.controller('studentsController', function ($scope){
+			$scope.students = [];
+
+			studentFactory.getStudents(function(data){
+				$scope.students = data;
+			})	
+		})
+	</script>
+</head>
+<body>
+	<div ng-controller='studentsController'>
+		<ul>
+			<li ng-repeat='student in students'>{{ student.name }},  {{student.age}}</li>
+		</ul>
+		<form id='form'>
+			Name: <input type='text' ng-model='newStudent.name'>
+			Age: <input type='text' ng-model='newStudent.age'>
+			<input id='submit' ng-click='addStudent()' type='submit' value='add student'>
+		</form>
+	</div>
+	
+</html>

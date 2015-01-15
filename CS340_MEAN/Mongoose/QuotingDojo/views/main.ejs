@@ -1,0 +1,22 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h1>Here are the awesome quotes!</h1>
+	<% for (var x in quote){ %>
+		<div class='quote'>
+			<h3>"<%= quote[x].quote %>"</h3>
+			<p>-<%= quote[x].name %> at <%= quote[x].date %></p>
+			<p><%= quote[x].likes %> Likes</p>
+
+			<form action='like' method='post'>
+				<input type='submit' value='like'>
+				<input type='hidden' name='likes' value='<%= quote[x].likes %>'>
+				<input type='hidden' name='name_id' value='<%= quote[x]._id %>'>
+			</form>
+		</div>
+<%	} %>
+</body>
+</html>

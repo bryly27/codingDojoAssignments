@@ -1,0 +1,58 @@
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	 <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	 <script type="text/javascript">
+	 	$(document).ready(function(){
+
+	 		var socket = io.connect();
+
+	 		// $('#submit').click(function(){
+	 		// 	event.preventDefault();
+	 		//   socket.emit('posting_form', {name: $('#name').val(), location: $('#location').val(), language: $('#language').val(), comment: $('#comment').val()});
+	 		//  });
+	 	$('#submit').click(function(){
+	 			event.preventDefault();
+	 		  socket.emit('posting_form', $('form').serialize());
+	 		 	$('form')[0].reset();
+	 		 });
+
+
+	 	// 	  socket.on('server_response', function(data, random){
+	 	// 		console.log(data);
+	 	// 		$('#header').html("<div class='pop'><p> You emitted the following information to the server:" + JSON.stringify(data, null, 1) + "</p><p>Your lucky number emitted by the server is "+ random.random_number + "</p></div>");
+			// });
+
+	 	 socket.on('server_response', function(data, random){
+	 			console.log(data);
+	 			$('#header').html("<div class='pop'><p> You emitted the following information to the server:" + JSON.stringify(data,null, 1) + "</p><p>Your lucky number emitted by the server is "+ random.random_number + "</p></div>");
+			});
+	 		
+	 	});
+	 </script>
+</head>
+<body>
+	<div id='header'></div>
+	<div class='form'>
+		<form>
+			<p>Your Name: <input id='name' type='text' name='name'></p>
+			<p>Dojo Location: <select id='location' name='location'>
+													<option value='Mountain_View'>Mountain View</option>
+													<option value='Seattle'>Seattle</option>
+												</select>	
+			</p>
+			<p>Favorite Language: <select id='language' name='language'>
+															<option value='Javascript'>Javascript</option>
+															<option value='PHP'>PHP</option>
+															<option value='Ruby'>Ruby</option>
+														</select>		
+			</p>
+			<p>Comment (optional):</p> 
+			<textarea id='comment' name='comment' placeholder='put your comment here'></textarea>
+			<input id='submit' type='submit' value='submit'>
+		</div>
+	</div>
+</body>
+</html>

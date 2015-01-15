@@ -1,0 +1,19 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<%  for (var x in user_info)
+		{ %>
+			<h1>Edit <%= user_info[x].name %>'s Page</h1>
+			<form action='/mongooses/<%= user_info[x]._id %>' method='post'>
+				<input type='text' name='user_name' value='<%= user_info[x].name %>'>
+				<input type='text' name='belt' value='<%= user_info[x].belt %>'>
+				<input type='submit' value='Submit Changes'>
+			</form>
+			<form action='/mongooses/<%= user_info[x]._id %>/destroy'>
+				<input type='submit' value='Delete user'>
+			</form>
+<%	} %>
+</body>
+</html>
