@@ -1,0 +1,19 @@
+<!-- This is the angular app that we are using for this html page -->
+<html>
+<head>
+	<title>Full Mean Demo</title>
+	<!-- require angular -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.min.js"></script>
+	<script type="text/javascript" src="angular/app.js"></script>
+	<script type="text/javascript" src="angular/controllers/friends-controller.js"></script>
+	<script type="text/javascript" src="angular/factories/friend-factory.js"></script>
+</head>
+<!-- everything in the body is going to use the friends controller (this gives us access to the friends controller $scope) -->
+<body>
+	<div ng-app='fullMeanDemo'>
+		<div ng-view=''>
+		</div>
+	</div>	
+</body>
+</html>

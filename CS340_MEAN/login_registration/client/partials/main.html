@@ -1,0 +1,33 @@
+<div class='login' ng-controller='users_controller'>
+	<div ng-show="message.display">
+		{{message.result}}
+	</div>
+	<form name='form'>
+		<h1>Registration</h1>
+		<p><input type='text' placeholder='First Name' ng-model='new_user.first_name' ng-minlength="2" required></p>
+		<p><input type='text' placeholder='Last Name' ng-model='new_user.last_name' ng-minlength="2" required></p>
+		<p><input type='email' placeholder='Email Address' ng-model='new_user.email' required></p>
+		<p><input type='email' placeholder='Confirm Email' ng-model='new_user.confirm_email' required></p>
+		<p><input type='password' name='password' placeholder='Password' data-ng-model='new_user.password' ng-minlength="6" required></p>
+		<p><input type='password' name='confirm_password' placeholder='Confirm Password' ng-model='new_user.confirm_password' ng-minlength="6" required></p>
+		<p><input type='submit' value='Submit' ng-click='add_user(new_user)'></p>
+	</form>
+	<input type='submit' ng-click='get_users()'>
+
+
+	<!-- <form id='uploadForm' enctype='multipart/form-data' action='/api/photo' method='post'> -->
+	<form>
+		<input type='file' onchange='angular.element(this).scope().filesChanged(this)' file-input='files'>
+		<input type='submit' ng-click='add_photo()'>
+	</form>
+	<!-- </form> -->
+
+
+	
+	<form>
+		<h1>Login</h1>
+		<p><input type='email' placeholder='email'></p>
+		<p><input type='password' placeholder='passworld'></p>
+		<p><input type='submit' value='Submit'></p>
+	</form>
+</div>

@@ -1,0 +1,32 @@
+<div ng-controller = 'FriendsController'>
+	<h1>Friends</h1>
+	<input type="text" ng-model="filter_name" placeholder="filter">
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat='friend in friends | filter: filter_name'>
+				<td ng-bind='friend.name'></td>
+				<td ng-bind='friend.age'></td>
+				<td><input type='submit' value='Delete' ng-click='deleteFriend(friend)'></td>
+				<!-- <td><a href="#/profile/{{friend._id}}" ng-click='getProfile(friend._id)'>edit</a></td> -->
+				<td><a href="#/profile/{{friend._id}}">edit</a></td>
+				<!-- <td><input type='submit' value='Edit' ng-click='getProfile(friend._id)'></td> -->
+			</tr>
+		</tbody>
+	</table>
+
+	<h1>Add a Friend</h1>
+	<!-- objects and properties nothing scary -->
+	<input type="text" ng-model="new_friend.name" placeholder="name">
+	<input type="text" ng-model="new_friend.age" placeholder="age">
+	<!-- addfriend() is a method we are going to make in the angular controller -->
+	<input type="submit" ng-click="addfriend()">
+
+	
+</div>

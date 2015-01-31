@@ -1,0 +1,40 @@
+<html>
+<head>
+	<title>Survey</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+		.result {
+			width: 400px;
+			border: 1px solid black;
+			margin-left: 450px;
+		}
+		.submitted_info {
+			width: 400px;
+			margin-left:450px;
+			margin-top: 50px;
+			border: 1px solid black;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class='result'>
+		<p>Thanks for submitting this form! You have submitted this form <%= @counter %> times now.</p>
+	</div>
+	<div class='submitted_info'>
+		<p>Name: <%= @name %></p>
+		<p>Dojo Location: <%= @location %></p>
+		<p>Favorite Language: <%= @language %></p>
+		<p>Comment: <%= @comment %></p>
+	  <form action='surveys/index' method='get'>
+			<input type='submit' value='Go Back'>
+		</form>	
+	</div>
+  
+
+</body>
+</html>
+

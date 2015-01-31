@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Word_Gen</title>
+	<style type="text/css">
+		.container {
+			text-align: center;
+		}
+		.word {
+			border: 1px solid black;
+			width: 400px;
+			margin-left: 475px;
+		}
+	</style>
+</head>
+<body>
+	<div class='container'>
+		<h5>Random Word (attempt #<%= @count %>)</h5>
+		<div class='word'>
+			<h1><%= @word %></h1>
+		</div>
+		<form action='/words/index' method='get'>
+			<input type='submit' value='Generate'>
+		</form>
+	</div>
+</body>
+</html>

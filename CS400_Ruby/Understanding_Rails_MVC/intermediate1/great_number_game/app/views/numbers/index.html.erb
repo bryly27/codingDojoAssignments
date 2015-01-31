@@ -1,0 +1,33 @@
+<html>
+<head>
+	<title>Number Game</title>
+	<style type="text/css">
+		.container {
+			text-align: center;
+		}
+	</style>
+</head>
+<body>
+	<div class='container'>
+		<h1>Welcome to the Great Number Game!</h1>
+		<h4>I am thinking of a number between 1 and 100</h4>
+		<h4>Take a guess</h4>
+
+		<form action='/numbers' method='post'>
+			<p><input type='text' name='guess'></p>
+			<p><input type='submit' value='submit'></p>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+		<div class='low'>
+			<h1><%= flash[:low] %></h1>
+		</div>
+		<div class='high'>
+			<h1><%= flash[:high] %></h1>
+		</div>
+		<div class='correct'>
+			<h1><%= flash[:correct].html_safe unless flash[:correct].blank? %></h1>
+		</div>
+
+	</div>
+</body>
+</html>

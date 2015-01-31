@@ -1,0 +1,43 @@
+<html>
+<head>
+	<title>Survey</title>
+	<style type="text/css">
+		body {
+			text-align: center;
+		}
+		form {
+			width: 400px;
+			margin-left:450px;
+			margin-top: 100px;
+			border: 1px solid black;
+		}
+
+	</style>
+</head>
+<body>
+	<form action='/results' method='post'>
+		<p>Your Name: <input type='text' name='name'></p>
+		<p>Dojo Location: <select name='location'>
+												<option></option>
+												<option value='San Jose'>San jose</option>
+												<option value='Seattle'>Seattle</option>
+												<option value='SoCal'>SoCal</option>
+											</select>
+		</p>
+		<p>Favorite Language: <select name='language'>
+														<option></option>
+														<option value='Javascript'>Javascript</option>
+														<option value='Ruby'>Ruby</option>
+														<option value='PHP'>PHP</option>
+													</select>
+		</p>	
+		<p>Comment (optional):</p> 
+		<p><textarea name='comment'></textarea></p>
+		<p><input type='submit' value='Submit'></p>
+		<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+	</form>
+
+
+
+</body>
+</html>

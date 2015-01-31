@@ -1,0 +1,45 @@
+<div ng-controller = 'users_controller'>
+	<h1>{{user}}</h1>
+	<h1></h1>
+	<div class='search_bar'>
+		<form>
+			<input type='text' ng-model='filter_topic' placeholder='filter'>
+			<!-- <input type='submit' ng-model='filter_topic' placeholder='filter'> -->
+		</form>
+	</div>
+	<div class='dashboard'>
+		<table>
+			<thead>
+				<tr>
+					<th>Category</th>
+					<th>Topic</th>
+					<th>User Name</th>
+					<th>Posts</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='topic in topics | filter: filter_topic'>
+					<td ng-bind='topic.topic_category'></td>
+					<td><a href='#/topic/{{topic.topic_title}}'>{{topic.topic_description}}</td>
+					<td><a href='#/profile/{{topic.topic_username}}'>{{topic.topic_username}}</a></td>
+					<td ng-bind='topic.topic_post_count'></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class='create'>
+			<h3>Add a new Topic</h3>	
+			<form>
+				<p>Topic: <input type='text' ng-model='topic.topic_title'></p>
+				<p>Description: <textarea ng-model='topic.topic_description'></textarea></p>
+				<select ng-model='topic.topic_category'>
+					<option value='HTML'>html</option>
+					<option value='CSS'>css</option>
+					<option value='Javascript'>javascript</option>
+					<option value='PHP'>PHP</option>
+					<option value='Ruby'>Ruby</option>
+				</select>
+				<input type='submit' ng-click='add_topic(topic)'>
+			</form>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,12 @@
+<div ng-controller = 'topics_controller'>
+	<div class='topic' ng-repeat='topic in topics'>
+		<h2><a href=''>{{topic.topic_username}}</a> posted a topic:</h2>
+		<h3>{{topic.topic_title}}</h3>
+		<p>Description: {{topic.topic_description}}</p>
+		<form>
+			<h4>Post your answer here...</h4>
+			<textarea ng-model='post.post_description'></textarea>
+			<p><input type='submit' ng-click='add_post(post)' ><p>
+		</form>
+	</div>
+</div>

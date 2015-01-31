@@ -1,0 +1,75 @@
+<html>
+<head>
+	<title>Ninja Gold</title>
+	<style type="text/css">
+		.box {
+			display: inline-block;
+			border: 1px solid black;
+			width: 300px;
+			height: 200px;
+			text-align: center;
+		}
+
+		.activities {
+			margin-top: 20px;
+			border: 1px solid black;
+			width: 1000px;
+			height: 200px;
+			overflow: scroll;
+			line-height: 40%;
+		}
+		.green {
+			color: green;
+		}
+		.red {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div class='your_gold'>
+		<h3>Your Gold: <%= session[:gold] %></h3>
+	</div>
+	<div class='box'>
+		<h2>Farm</h2>
+		<p>(earns 10-20 golds)</p>
+		<form action='/rpg/farm' method='post'>
+			<input type='submit' value='Find Gold!'>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+	</div>
+	<div class='box'>
+		<h2>Cave</h2>
+		<p>(earns 5-10 golds)</p>
+		<form action='/rpg/cave' method='post'>
+			<input type='submit' value='Find Gold!'>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+	</div>
+	<div class='box'>
+		<h2>House</h2>
+		<p>(earns 2-5 golds)</p>
+		<form action='/rpg/house' method='post'>
+			<input type='submit' value='Find Gold!'>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+	</div>
+	<div class='box'>
+		<h2>Casino</h2>
+		<p>(earns/takes 0-50 golds)</p>
+		<form action='/rpg/casino' method='post'>
+			<input type='submit' value='Find Gold!'>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+	</div>
+	<div class='activities'>
+		<% session[:activity].reverse.each do |x| %>
+			<%= x.html_safe %>
+		<% end %>
+	</div>
+	<form action='/rpg/reset' method='post'>
+		<input type='submit' value='reset'>
+		<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+	</form>
+</body>
+</html>

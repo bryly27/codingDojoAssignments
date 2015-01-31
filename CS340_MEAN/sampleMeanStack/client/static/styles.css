@@ -1,0 +1,96 @@
+.header {
+	margin-left: 700px;
+}
+
+.topic h3, .topic p{
+	margin-left: 50px;
+}
+
+.topic form {
+	margin-left: 70px;
+}
+
+.topic textarea {
+	width: 650px;
+	height: 80px;
+	border: 3px solid black;
+	border-radius: 10px;
+}
+
+.topic input {
+	margin-left: 500px;
+	width: 50px;
+	border: 3px solid black;
+}
+
+.sign_in {
+	width: 250px;
+	height: 100px;
+	border: 1px solid black;
+	text-align: center;
+	margin-left: 350px;
+	margin-top: 200px;
+}
+
+#chatbox {
+	margin-left: 50px;
+	margin-top: 50px;
+}
+
+#chat {
+	width: 50%;
+	height: 75%;
+	border: 3px solid black;
+	overflow-y: auto;
+	line-height: 30%;
+	padding-left: 10px;
+	display: inline-block;
+	border-radius: 10px;
+}
+
+#users {
+	width: 25%;
+	height: 75%;
+	border: 3px solid black;
+	vertical-align: top;
+	display: inline-block;
+	border-radius: 10px;
+}
+
+#users h4 {
+	margin: 20px;
+	border-bottom: 1px solid black;
+}
+
+#user {
+	padding-left: 10px;
+	line-height: 40%;
+}
+
+#message {
+	width: 600px;
+	margin-top: 20px;
+	border: 2px solid black;
+	border-radius: 5px;
+}
+
+#submit {
+	display: block;
+	margin-left: 550px;
+}
+
+.new_user {
+	color: red;
+}
+
+.disconnecting {
+	color: grey;
+}
+
+.user {
+	color: blue;
+}
+
+.message_photo {
+	width: 30%;
+}
