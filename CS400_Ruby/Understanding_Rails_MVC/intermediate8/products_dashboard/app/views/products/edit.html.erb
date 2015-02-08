@@ -1,0 +1,23 @@
+<% content_for :title do%>
+	Edit info
+<% end %>
+
+<% content_for :body do %>
+	<div class='container'>
+		<h1>Editing Product</h1>
+		<form action='/products/<%= @products.id %>' method='post'>
+			<p><select name='product[category]'>
+			<% @categories.each do |category| %>
+				<option value='<%= category.id %>'><%= category.name %></option>
+			<% end %>
+				</select>
+			</p>
+			<p><input type='text' name='product[name]' value='<%= @products.name %>'></p>
+			<p><textarea name='product[description]'><%= @products.description %></textarea></p>
+			<p><input type='text' name='product[price]' value='<%= @products.price %>'></p>
+			<p><input type='submit' value='Update'></p>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+		<a href='/products/index'>Back</a>
+	</div>
+<% end %>

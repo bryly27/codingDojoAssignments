@@ -1,0 +1,26 @@
+<% content_for :title do %>
+	Add User
+<% end %>
+
+<% content_for :css do %>
+	<style type="text/css">
+		.container {
+			margin: 40px 0 0 50px;
+		}
+	</style>
+<% end %>
+
+<% content_for :body do %>
+	<div class='container'>
+		<h1>New User</h1>
+		<form action='/users/' method='post'>
+			<p>First name: <input type='text' name='first_name'></p>
+			<p>Last name: <input type='text' name='last_name'></p>
+			<p>Email: <input type='text' name='email'></p>
+			<p>Password: <input type='password' name='password'></p>
+			<p><input type='submit' value='create'></p>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+		<a href="/users/index">Back</a>
+	</div>
+<% end %>

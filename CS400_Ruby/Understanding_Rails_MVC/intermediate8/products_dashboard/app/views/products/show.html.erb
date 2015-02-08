@@ -1,0 +1,23 @@
+<% content_for :title do %>
+	Product Info
+<% end %>
+
+<% content_for :body do %>
+	<div class='container'>
+		<h4>Name: <%= @products.name %></h4>
+		<h4>Name: <%= @products.description %></h4>
+		<h4>Name: $<%= @products.price %></h4>
+		<a href='/products/<%= @products.id %>/edit'>Edit</a> | <a href='/products/index'>Back</a>
+		<hr>
+		<h2>Comment:</h2>
+		<form action='/comments' method='post'>
+			<p><textarea name='comment[comment]'></textarea></p>
+			<p><input type='submit' value='Submit'></p>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+			<input type='hidden' name='comment[product_id]' value='<%= @products.id %>'>
+		</form>
+		<% @comments.each do |comment| %>
+			<p><%= comment.comment %> - <%= comment.created_at %></p>
+		<% end %>
+	</div>
+<% end %>

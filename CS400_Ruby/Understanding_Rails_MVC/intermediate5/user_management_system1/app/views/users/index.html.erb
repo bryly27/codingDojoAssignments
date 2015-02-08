@@ -1,0 +1,45 @@
+
+<%content_for :title do%>
+	User Management
+<% end %>
+
+<%content_for :css do%>
+	<style type="text/css">
+		.container {
+			margin: 40px 0 0 50px;
+		}
+		th, td {
+			border: 1px solid black;
+		}
+		table {
+			border-collapse: collapse;
+		}
+	</style>
+<% end %>
+
+<% content_for :body do%>
+	<div class='container'>
+		<h1>Listing users</h1>
+		<table>
+			<thead>
+				<tr>
+					<th>First name</th>
+					<th>Last name</th>
+					<th>Email</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @users.each do |user| %>
+				<tr>
+					<td><%= user.first_name %></td>
+					<td><%= user.last_name %></td>
+					<td><%= user.email_address %></td>
+					<td><a href='/users/<%= user.id %>'>Show</a> <a href='/users/<%= user.id %>/edit'>Edit</a> <a href='/users/<%= user.id %>' data-method='delete'>Delete</a></td>
+				</tr>
+				<% end %>
+			</tbody>
+		</table>
+		<p><a href="/users/new">New User</a></p>
+	</div>
+<% end %>

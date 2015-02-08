@@ -1,0 +1,158 @@
+<% content_for :title do %>
+	Events
+<% end %>
+
+<% content_for :body do %>
+	<div class='welcome'>
+		<h2>Welcome <%= @user.first_name %></h2>
+		<a href="/users/<%= @user.id %>/edit">Edit My Profile</a> |
+		<a href="/logoff">Log Off</a>
+	</div>
+
+	<% if flash[:errors] %>
+		<p class='green'><%= flash[:errors] %></p>	
+	<% end %>
+
+	<div class='events_in_state'>
+		<h3>Here are some of the events at your state:</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Location</th>
+					<th>Host</th>
+					<th>Action/Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @events.each do |event| %>
+					<% if event.user_id == @self %>
+						<tr>
+							<td><a href='/events/<%= event.id %>'><%= event.name %></a></td>
+							<td><%= event.date.strftime("%m/%d/%Y") %></td>
+							<td><%= event.city %></td>
+							<td><%= event.user.first_name %></td>
+							<td><a href='/events/<%= event.id %>/edit'>Edit</a></td>
+						</tr>
+					<% else %>
+						<tr>
+							<td><a href='/events/<%= event.id %>'><%= event.name %></a></td>
+							<td><%= event.date.strftime("%m/%d/%Y") %></td>
+							<td><%= event.city %></td>
+							<td><%= event.user.first_name %></td>
+							<td></td>
+						</tr>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
+	<div class='events_in_other_state'>
+		<h3>Here are some of the events in other states:</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Location</th>
+					<th>Host</th>
+					<th>Action/Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @events2.each do |event| %>
+					<% if event.user_id == @self %>
+						<tr>
+							<td><a href='/events/<%= event.id %>'><%= event.name %></a></td>
+							<td><%= event.date.strftime("%m/%d/%Y") %></td>
+							<td><%= event.city %></td>
+							<td><%= event.user.first_name %></td>
+							<td><a href='/events/<%= event.id %>/edit'>Edit</a></td>
+						</tr>
+					<% else %>
+						<tr>
+							<td><a href='/events/<%= event.id %>'><%= event.name %></a></td>
+							<td><%= event.date.strftime("%m/%d/%Y") %></td>
+							<td><%= event.city %></td>
+							<td><%= event.user.first_name %></td>
+							<td></td>
+						</tr>
+					<% end %>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+	<hr>
+
+	<div class='add_event'>
+		<h3>Add Event</h3>
+		<form action='/events' method='post'>
+			<p>Name: <input type='text' name='event[name]'></p>
+			<p>Date: <input type='date' name='event[date]'></p>
+			<p>Location: <input type='text' name='event[city]'>
+					<select name="event[state]">
+					 <option></option>
+				   <option value="AL">Alabama</option>
+				   <option value="AK">Alaska</option>
+				   <option value="AZ">Arizona</option>
+				   <option value="AR">Arkansas</option>
+				   <option value="CA">California</option>
+				   <option value="CO">Colorado</option>
+				   <option value="CT">Connecticut</option>
+				   <option value="DE">Delaware</option>
+				   <option value="DC">District Of Columbia</option>
+				   <option value="FL">Florida</option>
+				   <option value="GA">Georgia</option>
+				   <option value="HI">Hawaii</option>
+				   <option value="ID">Idaho</option>
+				   <option value="IL">Illinois</option>
+				   <option value="IN">Indiana</option>
+				   <option value="IA">Iowa</option>
+				   <option value="KS">Kansas</option>
+				   <option value="KY">Kentucky</option>
+				   <option value="LA">Louisiana</option>
+				   <option value="ME">Maine</option>
+				   <option value="MD">Maryland</option>
+				   <option value="MA">Massachusetts</option>
+				   <option value="MI">Michigan</option>
+				   <option value="MN">Minnesota</option>
+				   <option value="MS">Mississippi</option>
+				   <option value="MO">Missouri</option>
+				   <option value="MT">Montana</option>
+				   <option value="NE">Nebraska</option>
+				   <option value="NV">Nevada</option>
+				   <option value="NH">New Hampshire</option>
+				   <option value="NJ">New Jersey</option>
+				   <option value="NM">New Mexico</option>
+				   <option value="NY">New York</option>
+				   <option value="NC">North Carolina</option>
+				   <option value="ND">North Dakota</option>
+				   <option value="OH">Ohio</option>
+				   <option value="OK">Oklahoma</option>
+				   <option value="OR">Oregon</option>
+				   <option value="PA">Pennsylvania</option>
+				   <option value="RI">Rhode Island</option>
+				   <option value="SC">South Carolina</option>
+				   <option value="SD">South Dakota</option>
+				   <option value="TN">Tennessee</option>
+				   <option value="TX">Texas</option>
+				   <option value="UT">Utah</option>
+				   <option value="VT">Vermont</option>
+				   <option value="VA">Virginia</option>
+				   <option value="WA">Washington</option>
+				   <option value="WV">West Virginia</option>
+				   <option value="WI">Wisconsin</option>
+				   <option value="WY">Wyoming</option>
+					</select>
+			</p>
+			<p><input type='submit' value='Add Event'></p>
+			<input type='hidden' name='event[user_id]' value='<%= @user.id %>'>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+	</div>
+
+<% end %>
+
+

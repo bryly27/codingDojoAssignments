@@ -1,0 +1,18 @@
+<% content_for :title do %>
+	Edit
+<% end %>
+
+<% content_for :body do %>
+	<div class='container'>
+		<h1>Editing user</h1>
+		<form action='/users/<%= @user.id %>' method='post'>
+			<p>First name: <input type='text' name='first_name' value='<%= @user.first_name %>'></p>
+			<p>Last name: <input type='text' name='last_name' value='<%= @user.last_name %>'></p>
+			<p>Email: <input type='text' name='email' value='<%= @user.email_address %>'></p>
+			<p>Password: <input type='text' name='password' value='<%= @user.password %>'></p>
+			<input type='submit' value='Update'>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+		<a href='/users/<%= @user.id %>'>Show</a> | <a href='/users/index'>Back</a>
+	</div>
+<% end%>

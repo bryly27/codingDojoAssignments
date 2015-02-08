@@ -1,0 +1,18 @@
+<% content_for :title do %>
+	Event Info
+<% end %>
+
+<% content_for :body do %>
+	<div class='container'>
+		<div class='header'>
+			<a href="/events">Events Dashboard</a> |
+			<a href="/logoff">Log Off</a>
+		</div>
+		<h1><%= @event.name %></h1>
+		<div class='event_info'>
+			<h2>Host: <%= @event.user.first_name %> <%= @event.user.last_name %></h2>
+			<h2>Date: <%= @event.date.strftime("%m/%d/%Y") %></h2>
+			<h2>Location: <%= @event.city %>, <%= @event.state %></h2>
+		</div>
+	</div>
+<% end %>

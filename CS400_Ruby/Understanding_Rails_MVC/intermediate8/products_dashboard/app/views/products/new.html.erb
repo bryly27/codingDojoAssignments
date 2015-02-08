@@ -1,0 +1,28 @@
+<% content_for :title do %>
+	New Product
+<% end %>
+
+<% content_for :body do %>
+	<div class='container'>
+		<% if flash[:error] %>
+			<% flash[:error].each do |x| %>
+			<p class='errors'><%= x.html_safe %></p>
+			<% end %>
+		<% end %>
+		<h1>New Product</h1>
+		<form action='/products/' method='post' >
+			<p><select name='product[category_id]'>
+			<% @categories.each do |category| %>
+				<option value='<%= category.id %>'><%= category.name %></option>
+			<% end %>
+				</select>
+			</p>
+			<p>Name: <input type='text' name='product[name]'></p>
+			<p>Description: <textarea name='product[description]'></textarea></p>
+			<p>Price: <input type='text' name='product[price]'></p>
+			<p><input type='submit' value='create'></p>
+			<input name="authenticity_token" value="<%=form_authenticity_token %>" type="hidden">
+		</form>
+		<a href='/products/index'>Back</a>
+	</div>
+<% end %>

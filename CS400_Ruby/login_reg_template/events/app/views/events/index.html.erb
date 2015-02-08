@@ -1,0 +1,43 @@
+<% content_for :title do %>
+	Events
+<% end %>
+
+<% content_for :body do %>
+	<div class='welcome'>
+		<h2>Welcome <%= @user.first_name %></h2>
+		<a href="/users/<%= @user.id %>/edit">Edit My Profile</a> |
+		<a href="/logoff">Log Off</a>
+	</div>
+
+	<div class='events_in_state'>
+		<h3>Here are some of the events at your state:</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Location</th>
+					<th>Host</th>
+					<th>Action/Status</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+
+	<div class='events_in_other_state'>
+		<h3>Here are some of the events in other states:</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Date</th>
+					<th>Location</th>
+					<th>Host</th>
+					<th>Action/Status</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+<% end %>
+
+

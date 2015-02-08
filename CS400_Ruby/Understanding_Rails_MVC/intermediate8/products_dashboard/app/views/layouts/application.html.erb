@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= yield :title %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <style type="text/css">
+  	.container {
+  		margin: 40px 0 0 50px;
+  	}
+  	td, th {
+  		border: 1px solid black;
+  	}
+  	table {
+  		border-collapse: collapse;
+  	}
+  </style>
+</head>
+<body>
+
+<%= yield :body %>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<% content_for :title do %>
+	Comments
+<% end %>
+
+<% content_for :body do %>
+	<h1>All Comments</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Comments</th>
+				<th>Products</th>
+			</tr>
+		</thead>
+		<tbody>
+				<% @comments.each do |comment| %>
+				<tr>
+					<td><%= comment.comment %></td>
+					<td><%= comment.name %></td>
+				</tr>
+				<% end %>
+		</tbody>
+	</table>
+	<a href='/products/index'>Go Back</a>
+
+
+	
+<% end %>

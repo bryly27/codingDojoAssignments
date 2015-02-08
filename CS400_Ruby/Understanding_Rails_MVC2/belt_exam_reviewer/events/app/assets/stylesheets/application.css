@@ -1,0 +1,57 @@
+.container {
+	margin: 30px 0 0 50px;
+}
+.register, .login {
+	display: inline-block;
+	border: 1px solid black;
+	margin-top: 20px;
+	width: 400px;
+	height: 300px;
+	padding: 10px;
+}
+.login {
+	vertical-align: top;
+	margin-left: 50px;
+}
+.register {
+	margin-left: 50px;
+}
+.header h3, .header h2 {
+	display: inline-block;
+}
+.header h2 {
+	margin-left: 700px;
+}
+.header {
+	border-bottom: 1px solid black;
+}
+.header a:first-child{
+	margin-left: 700px;
+}
+.message textarea {
+	width: 800px;
+	height: 100px;
+}
+.posts {
+	margin-left: 50px;
+}
+.posts textarea {
+	width: 500px;
+	height: 75px;
+}
+.welcome h2 {
+	display: inline-block;
+	margin-right: 500px;
+}
+th, td {
+	border: 1px solid black;
+}
+table {
+	border-collapse: collapse;
+}
+.green {
+	color: green;
+}
+.red {
+	color: red;
+}
